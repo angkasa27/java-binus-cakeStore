@@ -6,6 +6,27 @@
   "configurations": [
     {
       "type": "java",
+      "name": "TransactionForm",
+      "request": "launch",
+      "mainClass": "TransactionForm",
+      "projectName": "JavaFXProject_2fe81da8"
+    },
+    {
+      "type": "java",
+      "name": "CustomerTable",
+      "request": "launch",
+      "mainClass": "CustomerTable",
+      "projectName": "JavaFXProject_2fe81da8"
+    },
+    {
+      "type": "java",
+      "name": "CakeTable",
+      "request": "launch",
+      "mainClass": "CakeTable",
+      "projectName": "JavaFXProject_2fe81da8"
+    },
+    {
+      "type": "java",
       "name": "FormCake",
       "request": "launch",
       "mainClass": "FormCake",

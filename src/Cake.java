@@ -1,5 +1,8 @@
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class Cake {
-  private int idcake;
+  private int idcake = 0;
   private String name;
   private String type;
   private int price;
@@ -41,6 +44,15 @@ public class Cake {
 
   public int getPrice() {
     return price;
+  }
+
+  public String getPriceText() {
+    if (price == 0) {
+      return "Rp0";
+    } else {
+      NumberFormat formatter = new DecimalFormat("#,###");
+      return ("Rp" + formatter.format(price));
+    }
   }
 
   public void setPrice(int price) {

@@ -1,5 +1,5 @@
 public class Customer {
-  private int idcustomer;
+  private int idcustomer = 0;
   private String name;
 
   public Customer() {
@@ -11,11 +11,11 @@ public class Customer {
     this.name = name;
   }
 
-  public int getIdcake() {
+  public int getIdcustomer() {
     return idcustomer;
   }
 
-  public void setIdcake(int idcustomer) {
+  public void setIdcustomer(int idcustomer) {
     this.idcustomer = idcustomer;
   }
 

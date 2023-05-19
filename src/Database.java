@@ -6,7 +6,7 @@ public class Database {
   private static final String USER = "root";
   private static final String PASSWORD = "1sampai8";
 
-  public static void insert(String tableName, String[] columns, Object[] values) {
+  public static int insert(String tableName, String[] columns, Object[] values) {
     String sql = "INSERT INTO " + tableName + " (";
     for (int i = 0; i < columns.length; i++) {
       sql += columns[i];
@@ -24,11 +24,21 @@ public class Database {
     sql += ")";
 
     try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-        Statement stmt = conn.createStatement()) {
-      stmt.executeUpdate(sql);
+        PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+      int rowsAffected = stmt.executeUpdate();
+      if (rowsAffected > 0) {
+        ResultSet generatedKeys = stmt.getGeneratedKeys();
+        if (generatedKeys.next()) {
+          return generatedKeys.getInt(1);
+        }
+        generatedKeys.close();
+      }
+
     } catch (SQLException e) {
       e.printStackTrace();
     }
+
+    return -1;
   }
 
   public static ResultSet select(String tableName, String[] columns, String condition) {

@@ -8,7 +8,10 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class App extends Application {
-  private Button addCakeButton;
+  private Button viewCakeButton;
+  private Button addCustomerButton;
+  private Button cashierSystemButton;
+  private Button transactionHistoryButton;
   private Button exitButton;
 
   public void start(Stage stage) {
@@ -17,10 +20,28 @@ public class App extends Application {
     Label lblTitle = new Label("Selamat Datang!");
     lblTitle.setStyle("-fx-font-size: 20px; -fx-font-weight: bold;");
 
-    addCakeButton = new Button("Tambah Kue Baru");
-    addCakeButton.setOnAction(e -> {
-      FormCake formCake = new FormCake();
-      formCake.start(new Stage());
+    viewCakeButton = new Button("Daftar Cake");
+    viewCakeButton.setOnAction(e -> {
+      CakeTable cakeTable = new CakeTable();
+      cakeTable.start(stage);
+    });
+
+    addCustomerButton = new Button("Daftar Customer");
+    addCustomerButton.setOnAction(e -> {
+      CustomerTable customerTable = new CustomerTable();
+      customerTable.start(stage);
+    });
+
+    cashierSystemButton = new Button("Transaksi Baru");
+    cashierSystemButton.setOnAction(e -> {
+      TransactionForm transactionForm = new TransactionForm();
+      transactionForm.start(stage);
+    });
+
+    transactionHistoryButton = new Button("Riwayat Transaksi");
+    transactionHistoryButton.setOnAction(e -> {
+      TransactionTable transactionTable = new TransactionTable();
+      transactionTable.start(stage);
     });
 
     exitButton = new Button("Keluar");
@@ -28,7 +49,8 @@ public class App extends Application {
 
     VBox dashboardLayout = new VBox(10);
     dashboardLayout.setAlignment(Pos.CENTER);
-    dashboardLayout.getChildren().addAll(lblTitle, addCakeButton, exitButton);
+    dashboardLayout.getChildren().addAll(lblTitle, viewCakeButton, addCustomerButton, cashierSystemButton,
+        transactionHistoryButton, exitButton);
 
     Scene scene = new Scene(dashboardLayout, 400, 300);
     stage.setScene(scene);
