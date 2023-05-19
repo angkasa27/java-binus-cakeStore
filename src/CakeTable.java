@@ -137,7 +137,6 @@ public class CakeTable extends Application {
     btnAddCake.setOnAction(e -> handleAddCakeButton());
     GridPane.setHalignment(btnAddCake, HPos.RIGHT);
 
-    // gridPane.add(backLink, 0, 0);
     gridPane.add(lblTitle, 0, 0);
     gridPane.add(btnAddCake, 1, 0);
     gridPane.add(table, 0, 1, 2, 1);

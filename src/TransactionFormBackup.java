@@ -90,7 +90,6 @@ public class TransactionFormBackup extends Application {
           setGraphic(null);
         } else {
           Cake cake = getTableView().getItems().get(getIndex());
-          // System.out.println(chart.size());
           TransactionDetails newItem = new TransactionDetails(chart.size(), cake.getIdcake(), cake.getName(), 1,
               cake.getPrice());
 

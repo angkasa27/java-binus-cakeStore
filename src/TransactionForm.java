@@ -138,7 +138,6 @@ public class TransactionForm extends Application {
       if (errorMessage.isEmpty())
         handleSubmitButton(stage, selectedCustomer);
       else {
-        System.out.println(errorMessage);
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Gagal Menyimpan");
         alert.setHeaderText("Gagal Menyimpan");
@@ -189,11 +188,9 @@ public class TransactionForm extends Application {
 
   private void addItem(Cake item, int qty) {
     boolean isExisting = false;
-    System.out.println(item);
     int idcake = item.getIdcake();
     for (int i = 0; i < data.size(); i++) {
       TransactionDetails transactionDetails = data.get(i);
-      System.out.println(transactionDetails.getName());
       if (transactionDetails.getIdcake() == idcake) {
         transactionDetails.setQty(transactionDetails.getQty() + qty);
         isExisting = true;
@@ -369,7 +366,6 @@ public class TransactionForm extends Application {
         addItem(selectedCake, qty);
         stage.close();
       } else {
-        System.out.println(errorMessage);
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Gagal Menyimpan");
         alert.setHeaderText("Gagal Menyimpan");

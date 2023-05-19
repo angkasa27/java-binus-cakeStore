@@ -48,7 +48,6 @@ public class CustomerForm extends Application {
     GridPane.setConstraints(btnSubmit, 1, 1);
     gridPane.getChildren().add(btnSubmit);
 
-    // Jika ada data awal, setel nilai teks pada input fields
     if (initialCustomer.getIdcustomer() != 0) {
       stage.setTitle("Edit Customer");
       txtName.setText(initialCustomer.getName());
@@ -83,15 +82,11 @@ public class CustomerForm extends Application {
       if (idcustomer != 0) {
         String condition = "idcustomer = '" + idcustomer + "'";
         Database.update(tableName, columns, values, condition);
-        System.out.println("Data updated successfully!");
       } else {
         Database.insert(tableName, columns, values);
-        System.out.println("Data inserted successfully!");
       }
       stage.close();
     } else {
-      System.out.println(errorMessage);
-
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Gagal Menyimpan");
       alert.setHeaderText("Gagal Menyimpan");

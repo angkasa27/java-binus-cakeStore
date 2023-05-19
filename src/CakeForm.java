@@ -62,7 +62,6 @@ public class CakeForm extends Application {
     GridPane.setConstraints(btnSubmit, 1, 3);
     gridPane.getChildren().add(btnSubmit);
 
-    // Jika ada data awal, setel nilai teks pada input fields
     if (initialCake.getIdcake() != 0) {
       stage.setTitle("Edit Cake");
       txtName.setText(initialCake.getName());
@@ -117,14 +116,11 @@ public class CakeForm extends Application {
       if (idcake != 0) {
         String condition = "idcake = '" + idcake + "'";
         Database.update(tableName, columns, values, condition);
-        System.out.println("Data updated successfully!");
       } else {
         Database.insert(tableName, columns, values);
-        System.out.println("Data inserted successfully!");
       }
       stage.close();
     } else {
-      System.out.println(errorMessage);
 
       Alert alert = new Alert(Alert.AlertType.ERROR);
       alert.setTitle("Gagal Menyimpan");

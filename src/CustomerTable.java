@@ -129,7 +129,6 @@ public class CustomerTable extends Application {
     btnAddCustomer.setOnAction(e -> handleAddCustomerButton());
     GridPane.setHalignment(btnAddCustomer, HPos.RIGHT);
 
-    // gridPane.add(backLink, 0, 0);
     gridPane.add(lblTitle, 0, 0);
     gridPane.add(btnAddCustomer, 1, 0);
     gridPane.add(table, 0, 1, 2, 1);
